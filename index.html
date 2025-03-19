@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore a wide collection of books at Book Showcase. Discover book details, reviews, and more. Perfect for book lovers!">
+    <meta name="keywords" content="books, book showcase, book collection, book details, book reviews, book lovers">
+    <meta name="author" content="Book Showcase Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+
+    <meta property="og:title" content="Book Showcase | Explore a World of Books">
+    <meta property="og:description" content="Discover a wide collection of books at Book Showcase. Perfect for book lovers!">
+    <meta property="og:image" content="https://example.com/path-to-your-image.jpg">
+    <meta property="og:url" content="https://example.com/book-showcase">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags (for Twitter sharing) -->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Showcase | Explore a World of Books">
+    <meta name="twitter:description" content="Discover a wide collection of books at Book Showcase. Perfect for book lovers!">
+    <meta name="twitter:image" content="https://example.com/path-to-your-image.jpg">
+    
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Page Title -->
+    <title>Book Showcase | Explore a World of Books</title>
+    
+    <!-- Custom Styles -->
+    <style type="text/css">
+        /* General Styles */
+        header {
+            background-color: rgb(57, 58, 57);
+            height: 3rem;
+        }
+        footer {
+            background-color: rgb(57, 58, 57);
+            margin-left: 0px;
+            margin-right: 0px;
+            height: 45px;
+        }
+        .home {
+            height: 35px;
+        }
+        main {
+            min-height: calc(100vh - 130px); 
+             padding-bottom: 30px;  
+        }       
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Flip Box Styles */
+        .flip-box {
+            width: 12rem;
+            height: 17rem; 
+            perspective: 1000px; /* Creates 3D space */
+            margin-top: 15px;
+            
+        }
+        .flip-box-inner {
+            width: 12rem;
+            height: 17rem;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            position: relative;
+            background-color: gray;
+            will-change: transform; /* Optimize for transformations */
+            border-radius: 10px; 
+        }
+        .flip-box-front, .flip-box-back {
+            width: 12rem;
+            height: 17rem; 
+            position: absolute;
+            backface-visibility: hidden; /* Hides the back face when flipped */
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            
+        }
+        .flip-box-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+        .flip-box-back {
+            transform: rotateY(180deg);
+            color: whitesmoke;
+        }
+        .flip-box:hover .flip-box-inner {
+            transform: rotateY(180deg);
+        }
+        .card-img-top {
+            height: 272px;
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        /* .flip-box-back{
+            height: 300px;
+            width: 200px;
+        } */
+
+
+
+        /* Gradient Background Animation */
+        main {
+            background: linear-gradient(45deg, rgba(255, 0, 128, 0.4), rgba(255, 140, 0, 0.6), rgba(255, 215, 0, 0.4), rgba(0, 255, 0, 0.6), rgba(0, 191, 255, 0.4), rgba(138, 43, 226, 0.6));
+            background-size: 400% 400%;
+            animation: gradientBG 25s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 25% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 75% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive Styles */
+        @media (orientation: portrait) {
+            .flip-container {
+                flex-direction: column;
+                justify-content: center; 
+            }
+            .flip-box {
+                width: 60%;
+                max-width: 100%;
+                margin-top: 8%;
+                
+            }
+           
+        }
+        @media (orientation: landscape) {
+            .flip-container {
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+            .flip-box {
+                width: 30%;
+                max-width: 12rem;
+            }
+        }
+
+         /* @media (max-width: 100px) {
+            .flip-box{
+                width:100px;
+            }
+        }  */
+    
+
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="text-white text-center fw-semibold fs-4 mt-1 p-2">Welcome to Book Showcase</header>
+    <a href="#home" class="text-decoration-none">
+        <div class="home bg-black fs-5 pe-3 p-4 d-flex justify-content-end align-items-center">
+            <button type="button" class="btn btn-outline-success fs-6 text-white">Home</button>
+        </div>
+    </a>
+
+    <!-- Main Content -->
+    <main class="bg-dark-subtle" id="home">
+        <div class="fw-bold p-3 fs-4">Explore Books</div>
+        <div class="flip-container d-flex flex-wrap align-items-center justify-content-evenly">
+            <!-- Card 1 -->
+            <div class="flip-box">
+                <div class="flip-box-inner ">
+                    <div class="flip-box-front">
+                        <img src="../public/images/book1 (1).png" class="card-img-top" alt="Book 1 Cover - A captivating novel">
+                    </div>
+                    <div class="flip-box-back">
+                        <a href="Book1.html"><div class="back-content fs-4 fw-bold">Click for Details</div></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="../public/images/book2.png" class="card-img-top" alt="Book 2 Cover - A thrilling mystery">
+                    </div>
+                    <div class="flip-box-back">
+                        <a href="Book2.html"><div class="back-content fs-4 fw-bold">Click for Details</div></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="../public/images/book3.png" class="card-img-top" alt="Book 3 Cover - An inspiring biography">
+                    </div>
+                    <div class="flip-box-back">
+                        <a href="Book3.html"><div class="back-content fs-4 fw-bold">Click for Details</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="d-flex justify-content-center align-items-center w-100">
+        <div class="bi bi-c-circle text-white">Book Showcase | All rights reserved</div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
